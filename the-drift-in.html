@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Drift In — Coastal Dining at Widow's Walk | Scituate, MA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marsh:#3d5a4c;
+    --marsh-deep:#26392f;
+    --sand:#e8dfce;
+    --cream:#f6f1e7;
+    --sky:#7da3a1;
+    --sunset:#d98c5f;
+    --shell:#c9b89a;
+    --ink:#1f2b24;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;font-weight:300;}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:500;}
+
+  .chrome{background:#dfd6c4;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #cabfa9;}
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .dot.r{background:#e06a5b;}.dot.y{background:#e7b24b;}.dot.g{background:#7fb069;}
+  .bar{flex:1;background:var(--cream);border-radius:20px;padding:5px 16px;font-size:12px;color:#9a8e76;margin-left:10px;}
+
+  nav{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;position:sticky;top:0;background:rgba(246,241,231,.92);backdrop-filter:blur(8px);z-index:50;border-bottom:1px solid rgba(31,43,36,.08);}
+  .logo{font-family:'Fraunces',serif;font-size:24px;font-weight:600;letter-spacing:.5px;color:var(--marsh-deep);}
+  .logo small{display:block;font-family:'Jost';font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--sunset);font-weight:400;margin-top:-2px;}
+  .navlinks{display:flex;gap:32px;font-size:13px;letter-spacing:2px;text-transform:uppercase;}
+  .navlinks a{color:var(--ink);text-decoration:none;transition:color .3s;}
+  .navlinks a:hover{color:var(--sunset);}
+  .btn{padding:13px 28px;border-radius:2px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:400;transition:all .3s;cursor:pointer;border:none;display:inline-block;}
+  .btn-primary{background:var(--marsh);color:var(--cream);}
+  .btn-primary:hover{background:var(--marsh-deep);}
+  .btn-ghost{background:transparent;color:var(--cream);border:1px solid var(--cream);}
+  .btn-ghost:hover{background:var(--cream);color:var(--marsh-deep);}
+
+  .hero{position:relative;min-height:90vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 40px;color:var(--cream);
+    background:linear-gradient(180deg, rgba(38,57,47,.55), rgba(38,57,47,.78)),
+      linear-gradient(160deg,#7da3a1 0%,#3d5a4c 55%,#26392f 100%);
+    overflow:hidden;}
+  .hero .waves{position:absolute;bottom:0;left:0;width:100%;line-height:0;}
+  .hero-eyebrow{font-size:13px;letter-spacing:5px;text-transform:uppercase;margin-bottom:22px;opacity:.9;}
+  .hero h1{font-size:clamp(54px,9vw,120px);line-height:.95;font-weight:500;letter-spacing:-1px;}
+  .hero h1 em{font-style:italic;color:var(--sand);}
+  .hero .tag{font-size:20px;font-weight:300;margin:26px 0 38px;max-width:540px;line-height:1.6;}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;}
+  .scroll-note{position:absolute;bottom:28px;font-size:11px;letter-spacing:3px;text-transform:uppercase;opacity:.7;}
+
+  .strip{background:var(--marsh-deep);color:var(--sand);display:flex;justify-content:center;gap:60px;padding:18px 40px;flex-wrap:wrap;font-size:13px;letter-spacing:2px;text-transform:uppercase;}
+  .strip span{display:flex;align-items:center;gap:10px;}
+  .strip span::before{content:"✦";color:var(--sunset);}
+
+  .section{padding:100px 50px;max-width:1200px;margin:0 auto;}
+  .intro{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:center;}
+  .intro .eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--sunset);margin-bottom:18px;}
+  .intro h2{font-size:clamp(34px,4.5vw,52px);line-height:1.05;margin-bottom:24px;color:var(--marsh-deep);}
+  .intro p{font-size:17px;line-height:1.8;color:#43554a;margin-bottom:18px;}
+  .intro-visual{height:440px;border-radius:4px;position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#7da3a1,#3d5a4c);display:flex;align-items:center;justify-content:center;}
+  .intro-visual .ring{position:absolute;width:300px;height:300px;border:1px solid rgba(246,241,231,.4);border-radius:50%;}
+  .intro-visual .ring2{width:210px;height:210px;}
+  .intro-visual .sun{width:120px;height:120px;border-radius:50%;background:var(--sunset);box-shadow:0 0 80px rgba(217,140,95,.6);}
+
+  .menus{background:var(--sand);}
+  .menus-wrap{max-width:1200px;margin:0 auto;padding:100px 50px;}
+  .menus h2{text-align:center;font-size:clamp(34px,5vw,56px);color:var(--marsh-deep);margin-bottom:8px;}
+  .menus .sub{text-align:center;font-family:'Fraunces';font-style:italic;font-size:22px;color:var(--sunset);margin-bottom:56px;}
+  .menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .menu-card{background:var(--cream);border-radius:4px;padding:36px 26px;text-align:center;transition:transform .35s,box-shadow .35s;border-top:3px solid var(--marsh);}
+  .menu-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(38,57,47,.16);}
+  .menu-card .ic{font-size:32px;margin-bottom:14px;}
+  .menu-card h3{font-size:24px;color:var(--marsh-deep);margin-bottom:8px;}
+  .menu-card p{font-size:14px;color:#5b6b60;line-height:1.6;}
+
+  .feature{position:relative;color:var(--cream);text-align:center;padding:120px 40px;
+    background:linear-gradient(rgba(38,57,47,.72),rgba(38,57,47,.82)),linear-gradient(120deg,#3d5a4c,#26392f);}
+  .feature h2{font-size:clamp(34px,5vw,58px);margin-bottom:20px;}
+  .feature h2 em{font-style:italic;color:var(--sunset);}
+  .feature p{font-size:18px;max-width:560px;margin:0 auto 34px;line-height:1.7;font-weight:300;}
+
+  .visit{padding:100px 50px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .visit .eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--sunset);margin-bottom:16px;}
+  .visit h2{font-size:clamp(32px,4.5vw,48px);color:var(--marsh-deep);margin-bottom:26px;line-height:1.05;}
+  .visit-detail{margin-bottom:20px;}
+  .visit-detail .l{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:4px;}
+  .visit-detail .v{font-size:18px;color:var(--ink);}
+  .map-card{background:var(--marsh-deep);border-radius:4px;height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--sand);text-align:center;padding:40px;}
+  .map-card .pin{font-size:44px;margin-bottom:14px;}
+  .map-card h3{font-family:'Fraunces';font-style:italic;font-size:28px;margin-bottom:8px;}
+
+  footer{background:var(--ink);color:#8a988e;text-align:center;padding:28px;font-size:13px;letter-spacing:1px;}
+  footer span{color:var(--sunset);font-family:'Fraunces';font-style:italic;}
+
+  @media(max-width:860px){
+    nav{padding:16px 22px;}.navlinks{display:none;}
+    .section{padding:60px 24px;}.intro{grid-template-columns:1fr;gap:36px;}
+    .intro-visual{height:280px;}
+    .menus-wrap{padding:60px 24px;}.menu-grid{grid-template-columns:1fr 1fr;}
+    .visit{grid-template-columns:1fr;gap:36px;padding:60px 24px;}
+    .strip{gap:24px;}
+  }
+</style>
+</head>
+<body>
+  <div class="chrome">
+    <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+    <span class="bar">🔒 thedriftinscituate.com</span>
+  </div>
+
+  <nav>
+    <div class="logo">The Drift In<small>Scituate, MA</small></div>
+    <div class="navlinks">
+      <a href="#">Menu</a><a href="#">Breakfast</a><a href="#">Private Events</a><a href="#">Calendar</a><a href="#">Visit</a>
+    </div>
+    <a href="#" class="btn btn-primary">View Menu</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-eyebrow">On the Driftway · Widow's Walk Golf Course</div>
+    <h1>Good food,<br><em>great</em> marsh views.</h1>
+    <div class="tag">A full-service coastal restaurant & bar where golfers, locals, and sunset-seekers all end up at the same deck.</div>
+    <div class="hero-btns">
+      <a href="#" class="btn btn-primary">See the Menu</a>
+      <a href="#" class="btn btn-ghost">Sunday Breakfast ↗</a>
+    </div>
+    <div class="scroll-note">Scroll to explore ↓</div>
+  </section>
+
+  <div class="strip">
+    <span>Lunch & Dinner Daily</span>
+    <span>Breakfast Sundays @ 10</span>
+    <span>Live Music</span>
+    <span>Open Year-Round</span>
+  </div>
+
+  <section class="section">
+    <div class="intro">
+      <div>
+        <div class="eyebrow">Welcome In</div>
+        <h2>Right on the Driftway, overlooking the marsh.</h2>
+        <p>The Drift In sits at Widow's Walk Golf Course, but you don't need to play a round to pull up a chair. Golfers grab a drink and a bite mid-course; everyone else comes for the sun-drenched patio, the herring brook view, and a relaxed New England menu.</p>
+        <p>We're open to the public for lunch and dinner all week — plus breakfast every Sunday at 10am. The course closes for the season; we don't.</p>
+        <a href="#" class="btn btn-primary" style="background:var(--sunset);margin-top:10px;">Reserve a Table</a>
+      </div>
+      <div class="intro-visual">
+        <div class="ring"></div><div class="ring ring2"></div><div class="sun"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menus">
+    <div class="menus-wrap">
+      <h2>What's Cooking</h2>
+      <div class="sub">From the patio bar to the dinner table</div>
+      <div class="menu-grid">
+        <div class="menu-card"><div class="ic">🍳</div><h3>Breakfast</h3><p>Sunday mornings done right — eggs benedict, roasted potatoes & fresh fruit.</p></div>
+        <div class="menu-card"><div class="ic">🥪</div><h3>Lunch</h3><p>Smash burgers, fish tacos & sandwiches with a view of the brook.</p></div>
+        <div class="menu-card"><div class="ic">🦞</div><h3>Dinner</h3><p>Coastal favorites — lobster, jambalaya & reasonably priced classics.</p></div>
+        <div class="menu-card"><div class="ic">🍹</div><h3>Patio Bar</h3><p>Cold drinks, live music, and darts on the deck overlooking Herring Brook.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature">
+    <h2>Your next <em>celebration of life</em>, shower, or party.</h2>
+    <p>The Drift In hosts private functions — rehearsal dinners, baby showers, bereavements, and gatherings of every kind. We make it warm, welcoming, and easy from the first call to the last toast.</p>
+    <a href="#" class="btn btn-ghost">Inquire About Events</a>
+  </section>
+
+  <section class="visit">
+    <div>
+      <div class="eyebrow">Find Us</div>
+      <h2>Come on in — we're easy to find.</h2>
+      <div class="visit-detail"><div class="l">Address</div><div class="v">250 Driftway, Scituate, MA 02066</div></div>
+      <div class="visit-detail"><div class="l">Hours</div><div class="v">Mon–Sat 11am–8pm · Sun 10am–8pm</div></div>
+      <div class="visit-detail"><div class="l">Reservations & Events</div><div class="v">(781) 546-2739</div></div>
+      <div class="visit-detail"><div class="l">Email</div><div class="v">thedriftinscituate@outlook.com</div></div>
+    </div>
+    <div class="map-card">
+      <div class="pin">📍</div>
+      <h3>At Widow's Walk Golf Course</h3>
+      <p style="opacity:.85;font-size:14px;margin-top:6px;">On the Driftway, where the marsh meets the brook.</p>
+    </div>
+  </section>
+
+  <footer>
+    A mock-up designed by <span>Drew Golden Designs</span> · This is a concept preview, not the live site
+  </footer>
+</body>
+</html>
